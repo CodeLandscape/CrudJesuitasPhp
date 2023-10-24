@@ -1,2 +1,2 @@
 # CrudJesuitasPhp
-Gestión de un CRUD  
+Aplicacion de gestion  de datos jesuitas en basa a la BBDD 
