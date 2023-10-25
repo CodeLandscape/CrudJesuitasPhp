@@ -2,6 +2,11 @@
 form {
     margin: 10px;
 }
+/* Estilos para los h1 */
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bolder;
+}
 
 /* Estilos para etiquetas */
 label {
@@ -28,4 +33,13 @@ input[type="submit"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+/* Estilo para los enlaces */
+div a{
+    text-align: center;
+    width: 1rem;
+    text-decoration: none;
+    padding: 50px;
+    border: 3px solid blue;
 }

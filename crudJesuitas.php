@@ -15,14 +15,20 @@ class Crud{
     public function agregarJesuita($id, $nombre, $firma)
     {
         $this->conectar();
-        $sql = "INSERT INTO jesuita (idJesuita, nombre,firma) VALUES ('$id', '$nombre','$firma')";
+        
+        try{
+            $sql = "INSERT INTO jesuita (idJesuita, nombre,firma) VALUES ('$id', '$nombre','$firma')";
+
+        }catch (mysqli_sql_exception $excp) {
+            return $excp->getMessage();
+    }
         return $this->conexion->query($sql);
     }
 
     public function borrarJesuita($id)
     {
         $this->conectar();
-        $sql = "DELETE FROM jesuita WHERE idJesuita = '$id'";
+        $sql = "DELETE FROM jesuita WHERE idJesuita = '$id' ";
         return $this->conexion->query($sql);
     }
 
@@ -33,9 +39,11 @@ class Crud{
         return $this->conexion->query($sql);
     }
 
-    public function mostarVisitas()
+    public function mostrarVisitas($id)
     {
-        //////mostrar con un echo todas las visitas realizadas
+        $this->conectar(); 
+        $sql="SELECT * FROM visita WHERE idJesuita=$id";
+        return $this->conexion->query($sql);
     }
 
 }

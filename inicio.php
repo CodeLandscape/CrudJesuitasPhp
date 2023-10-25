@@ -7,7 +7,7 @@
     <title>Crud</title>
     <link rel="stylesheet" href="estilo.css">
 </head>
-
+<h1>Gestion Jesuitas</h1>
 <body>
     <!-- añadir un jesuita -->
     <form action="inicio.php" method="POST">
@@ -20,6 +20,7 @@
         <input type="submit" name="agregar" value="agregar">
     </form>
     <br>
+
     <!-- borrar un jesuita -->
     <form action="inicio.php" method="POST">
         <label for="borrar_id">ID a borrar:</label>
@@ -27,6 +28,7 @@
         <input type="submit" name="borrar" value="Borrar Jesuita">
     </form>
     <br>
+
     <!-- modificado a traves de ID -->
     <form action="inicio.php" method="POST">
         <label for="modificar_id">ID a modificar:</label>
@@ -37,9 +39,17 @@
         <input type="text" name="firma" required>
         <input type="submit" name="modificar" value="Modificar Jesuita">
     </form>
-    <br>
 
+    <br>
+    <form action="inicio.php">
+        <label for="mostrardatos">Introduce el id a modificar</label>
+        <input type="text" name= "mostrar">
+        <input type="submit" name="mostrar" value="mostrarlistado">
+    </form>
+    <br>
+    <a href="tablas.html">Volver a la seleccion de tablas de la BBD</a>
     <?php
+
     require_once("crudJesuitas.php");
     $jesuita = new Crud();
 
@@ -78,6 +88,16 @@
             echo "Jesuita con ID $idModificar ha sido modificado con éxito.";
         } else {
             echo "Error al modificar el Jesuita.";
+        }
+    }
+
+    if(isset($_POST["mostrar"]))
+    {
+        $idbusqueda= $_POST["mostrar"];
+        $resultado= $jesuita->mostrarVisitas($idbusqueda);
+        if($idbusqueda)
+        {
+            echo "Id del jesuita a modificar $idbusqueda";
         }
     }
     ?>
