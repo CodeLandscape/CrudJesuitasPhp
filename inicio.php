@@ -50,13 +50,13 @@
     <?php
 
     require_once("crudJesuitas.php"); 
-    $jesuita = new CrudJesuitas();
+    $jesuita = new CrudJesuitas();      //se crea el objeto
 
     if (isset($_POST["agregar"])) {
         $nombreJesuita = $_POST["nombre"];
         $idJesuita = $_POST["id"];
         $firma= $_POST["firma"];
-        $resultado = $jesuita->agregarJesuita($idJesuita, $nombreJesuita,$firma);
+        $resultado = $jesuita->agregarJesuita($idJesuita, $nombreJesuita,$firma);   //llamamos al metofo para añadir la fila
 
         if ($resultado) {
             echo "Jesuita agregado con éxito.";
@@ -67,7 +67,7 @@
 
     if (isset($_POST["borrar"])) {
         $idBorrar = $_POST["borrar_id"];
-        $resultadoBorrar = $jesuita->borrarJesuita($idBorrar);
+        $resultadoBorrar = $jesuita->borrarJesuita($idBorrar);      //llamada al metodo para borrar un numero de puesto/id
 
         if ($resultadoBorrar) {
             echo "Jesuita con ID $idBorrar ha sido borrado con éxito.";
@@ -81,7 +81,7 @@
         $idModificar = $_POST["modificar_id"];
         $nuevoNombre = $_POST["nuevo_nombre"];
         $nuevaFirma = $_POST["firma"];
-        $resultadoModificar = $jesuita->modificarJesuita($idModificar, $nuevoNombre,$nuevaFirma);
+        $resultadoModificar = $jesuita->modificarJesuita($idModificar, $nuevoNombre,$nuevaFirma);       //ejecuta el metodo para modificar segun los datos introducidos una fila de la tabla jesuita
 
         if ($resultadoModificar) {
             echo "Jesuita con ID $idModificar ha sido modificado con éxito.";
@@ -90,15 +90,6 @@
         }
     }
 
-    if(isset($_POST["mostrar"]))
-    {
-        $idbusqueda= $_POST["mostrar"];
-        $resultado= $jesuita->mostrarVisitas($idbusqueda);
-        if($idbusqueda)
-        {
-            echo "Id del jesuita a modificar $idbusqueda";
-        }
-    }
     ?>
 </body>
 

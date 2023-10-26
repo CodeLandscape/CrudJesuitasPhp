@@ -40,6 +40,7 @@
         <input type="submit" name="modificar" value="ModificarLugar">
     </form>
     <br>
+    <!-- Lista todos los lugares visitados -->
     <form action="mostrar.php">
         <label for="mostrardatos">Mostrar todos los lugares</label>
         <input type="text" name= "mostrar">
@@ -51,6 +52,7 @@
     require_once("crudLugares.php");
     $nuevolugar = new CrudLugares();
 
+    //agregar nueva fila a tabla lugar
     if (isset($_POST["agregar"])) {
         $ip = $_POST["ip"];
         $lugar = $_POST["nombreLugar"];
@@ -64,6 +66,7 @@
         }
     }
 
+    //borrado de una ip
     if (isset($_POST["borrar"])) {
         $ipBorrar = $_POST["borrar_ip"];
         $resultadoBorrar = $nuevolugar->borrarLugar($ipBorrar);
@@ -75,7 +78,7 @@
         }
     }
 
-
+    // modificacion de una fila de la tabla lugar
     if (isset($_POST["modificar"])) {
         $ipModificar = $_POST["modificarIp"];
         $nuevoLugar = $_POST["nuevoLugar"];
