@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +10,7 @@
 <body>
     <!-- añadir un jesuita -->
     <form action="inicio.php" method="POST">
-        <label for="nombre">ID:</label>
+        <label for="nombre">Numero de puesto:</label>
         <input type="text" name="id" required>
         <label for="nombre">Nombre:</label>
         <input type="text" name="nombre" required>
@@ -23,7 +22,7 @@
 
     <!-- borrar un jesuita -->
     <form action="inicio.php" method="POST">
-        <label for="borrar_id">ID a borrar:</label>
+        <label for="borrar_id">Numero de puesto a borrar:</label>
         <input type="text" name="borrar_id" required>
         <input type="submit" name="borrar" value="Borrar Jesuita">
     </form>
@@ -31,7 +30,7 @@
 
     <!-- modificado a traves de ID -->
     <form action="inicio.php" method="POST">
-        <label for="modificar_id">ID a modificar:</label>
+        <label for="modificar_id">Numero de puesto a modificar:</label>
         <input type="text" name="modificar_id" required>
         <label for="nuevo_nombre">Nuevo nombre:</label>
         <input type="text" name="nuevo_nombre" required>
@@ -50,8 +49,8 @@
     <a href="tablas.html">Volver a la seleccion de tablas de la BBD</a>
     <?php
 
-    require_once("crudJesuitas.php");
-    $jesuita = new Crud();
+    require_once("crudJesuitas.php"); 
+    $jesuita = new CrudJesuitas();
 
     if (isset($_POST["agregar"])) {
         $nombreJesuita = $_POST["nombre"];

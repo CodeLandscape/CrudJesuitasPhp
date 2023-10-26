@@ -40,6 +40,11 @@
         <input type="submit" name="modificar" value="ModificarLugar">
     </form>
     <br>
+    <form action="mostrar.php">
+        <label for="mostrardatos">Mostrar todos los lugares</label>
+        <input type="text" name= "mostrar">
+        <input type="submit" name="mostrar" value="mostrarlistado">
+    </form>
     <a href="tablas.html">Volver a la seleccion de tablas de la BBD</a>
     <?php
 

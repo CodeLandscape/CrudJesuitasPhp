@@ -1,20 +1,20 @@
 <?php
 
-class Crud{
+require_once("configdb.php");
+
+class CrudJesuitas{
 
     
     private $conexion;
 
-  
-    public function conectar()
+    
+    public function __construct()
     {
-        // Conexión a la base de datos
-        $this->conexion = new mysqli("localhost", "root", "", "jesuitis");
+        $this->conexion = new mysqli(BBDD, USER, PASSWORD, NOMBRE_BBDD);
     }
-
+  
     public function agregarJesuita($id, $nombre, $firma)
     {
-        $this->conectar();
         
         try{
             $sql = "INSERT INTO jesuita (idJesuita, nombre,firma) VALUES ('$id', '$nombre','$firma')";
@@ -27,21 +27,20 @@ class Crud{
 
     public function borrarJesuita($id)
     {
-        $this->conectar();
+        
         $sql = "DELETE FROM jesuita WHERE idJesuita = '$id' ";
         return $this->conexion->query($sql);
     }
 
     public function modificarJesuita($id, $nuevoNombre,$nuevaFirma)
     {
-        $this->conectar();
+       
         $sql = "UPDATE jesuita SET nombre = '$nuevoNombre' , firma= '$nuevaFirma' WHERE idJesuita = '$id'";
         return $this->conexion->query($sql);
     }
 
     public function mostrarVisitas($id)
     {
-        $this->conectar(); 
         $sql="SELECT * FROM visita WHERE idJesuita=$id";
         return $this->conexion->query($sql);
     }
