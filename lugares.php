@@ -42,9 +42,7 @@
     <br>
     <!-- Lista todos los lugares visitados -->
     <form action="mostrar.php">
-        <label for="mostrardatos">Mostrar todos los lugares</label>
-        <input type="text" name= "mostrar">
-        <input type="submit" name="mostrar" value="mostrarlistado">
+        <input type="submit" name="mostrar" value="Listar todos los lugares">
     </form>
     <a href="tablas.html">Volver a la seleccion de tablas de la BBD</a>
     <?php
